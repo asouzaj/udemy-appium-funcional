@@ -16,7 +16,7 @@ public class DriverFactory {
 
 
     public static AppiumDriver getDriver(){
-        if(driver==null){
+        if(driver == null){
         	
         	
             createDriver();
