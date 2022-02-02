@@ -1,13 +1,18 @@
 package com.alura.appium.core;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
     
@@ -52,7 +57,15 @@ public class DriverFactory {
        
        
         driver = new AppiumDriver<>(urlConexao,configuracoes);
+       
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
+        
+        MobileElement botaoOk = (MobileElement)driver.findElement(MobileBy.AccessibilityId("android:id/button1"));
+        botaoOk.click();
+       
+        MobileElement botaoFormulario = (MobileElement)driver.findElement(By.xpath("//*[@text='Formulário']"));
+        botaoFormulario.click();
        
         
     }

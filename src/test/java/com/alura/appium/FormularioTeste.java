@@ -59,12 +59,11 @@ public AppiumDriver driver;
 
 		//AppiumDriver driver = AppiumDriverConfig.Instance().driver;
 
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//
 		//AppiumDriver driver = AppiumDriverConfig.Instance().driver;
 
 		
-
-
+		
 		//localizar combo e clicar
 
 		MobileElement campoNome = (MobileElement)driver.findElement(MobileBy.AccessibilityId("nome"));
