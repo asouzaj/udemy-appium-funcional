@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
@@ -26,7 +27,7 @@ public class DriverFactory {
         	
             createDriver();
         }
-       
+        
         return driver;
     }
 
@@ -60,8 +61,8 @@ public class DriverFactory {
        
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
-        
-        MobileElement botaoOk = (MobileElement)driver.findElement(MobileBy.AccessibilityId("android:id/button1"));
+       
+        MobileElement botaoOk = (MobileElement)driver.findElement(By.xpath("//android.widget.Button"));
         botaoOk.click();
        
         MobileElement botaoFormulario = (MobileElement)driver.findElement(By.xpath("//*[@text='Formulário']"));
@@ -70,12 +71,11 @@ public class DriverFactory {
         
     }
     
-    public void killDriver() {
-    	
-    	if(driver != null) {
-    	driver.quit();
-    	driver = null;
-    	}
-    	
-    }
+	
+	  public void killDriver() {
+	  
+	  if(driver != null) { driver.quit(); driver = null; }
+	  
+	  }
+	 
 }
